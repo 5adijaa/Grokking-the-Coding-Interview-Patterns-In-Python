@@ -16,10 +16,12 @@ def is_palindrome(s: str) -> bool:
 
 def main():
     test_cases = ['kayak', 'RACEACAR', 'ABCDEFGFEDCBA', 'ABCBA', 'ABBA', 'RACEACAR']
-    for i in range(len(test_cases)):
+    i = 0
+    for s in test_cases:
         print("Test Case #", i + 1)
-        print(is_palindrome(test_cases[i]))
-        print("-" * 50)
+        print(is_palindrome(s))
+        print("-" * 20)
+        i += 1
 
 
 if __name__ == '__main__':
