@@ -7,10 +7,10 @@ The pointers can be used to iterate the data structure in one or both directions
 
 ## Does my problem match this pattern?
 - Yes, if all of these conditions are fulfilled:
-* The input data can be traversed in a linear fashion, that is, it’s in an array, in a linked list, or in a string of characters.
-* The input data is sorted, or else, arranged in a way that is relevant to the problem, such as numeric data sorted in ascending or descending order, or characters arranged symmetrically.
-* We are only considering the two elements in the input data that are pointed to by the two pointers rather than the whole set of elements located between the two pointers.
+    * The input data can be traversed in a linear fashion, that is, it’s in an array, in a linked list, or in a string of characters.
+    * The input data is sorted, or else, arranged in a way that is relevant to the problem, such as numeric data sorted in ascending or descending order, or characters arranged symmetrically.
+    * We are only considering the two elements in the input data that are pointed to by the two pointers rather than the whole set of elements located between the two pointers.
 
 - No, if either of these conditions is fulfilled:
-* The input data cannot be traversed in a linear fashion, that is, it’s neither in an array, nor in a linked list, nor in a string of characters.
-* The problem requires an exhaustive search of the solution space, that is, eliminating one solution does not eliminate any others.
+    * The input data cannot be traversed in a linear fashion, that is, it’s neither in an array, nor in a linked list, nor in a string of characters.
+    * The problem requires an exhaustive search of the solution space, that is, eliminating one solution does not eliminate any others.
