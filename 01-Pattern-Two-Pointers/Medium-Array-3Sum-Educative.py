@@ -20,14 +20,12 @@ def find_sum_of_three(nums: List[int], target: int) -> bool:
             # Check if the sum of the triple is equal to the sum of target
             sum = nums[i]+nums[low]+nums[high]
             if sum == target:
-                return True
-            elif sum > target:
-                high -= 1
+                return True                
             elif sum < target:
                 low +=1
             else:
-                low = i+1
-                high = len(nums)-1
+                high -= 1
+            
     return False
 
 
