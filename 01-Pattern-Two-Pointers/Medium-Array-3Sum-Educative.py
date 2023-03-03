@@ -44,3 +44,13 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+Time Complexity: 
+ ** Sorting the array: O(nlog(n))
+ ** Nested loop to find the triplet: O(n^2)
+=> which can be simplified to O(n^2)
+
+Space Complixity:
+=> In python, space complixity of sort() function is O(n)
+'''
