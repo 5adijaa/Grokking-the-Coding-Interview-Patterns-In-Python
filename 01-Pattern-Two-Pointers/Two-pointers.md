@@ -14,3 +14,8 @@ The pointers can be used to iterate the data structure in one or both directions
 - No, if either of these conditions is fulfilled:
     * The input data cannot be traversed in a linear fashion, that is, it’s neither in an array, nor in a linked list, nor in a string of characters.
     * The problem requires an exhaustive search of the solution space, that is, eliminating one solution does not eliminate any others.
+
+
+## File Naming Style:
+**Difficulty-Data_Type-Problem_Name-Platform**
+Ex: Easy-String-Valid_Palindrome-Leetcode
