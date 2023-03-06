@@ -47,8 +47,9 @@ def main():
     string_to_reverse = ['  Hello World!   ', ' asdasd df f', 'All    Together', 'the  sky is blue']
 
     for i in range(len(string_to_reverse)):
-        print('Pur string: ', '"',string_to_reverse[i],'"')
-        print('Reversed string: ', '"',reverseWords(string_to_reverse[i]),'"', sep='')
+        print('Pur string: ', '"', string_to_reverse[i], '"')
+        print('\n')
+        print('Reversed string: ', '"', reverseWords(string_to_reverse[i]), '"', sep='')
         print('-'*50)
 
 
