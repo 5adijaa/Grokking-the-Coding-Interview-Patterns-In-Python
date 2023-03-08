@@ -32,6 +32,8 @@ def HappyNumber(n: int) -> bool:
     slow = n
     fast = squared_sum(n)
 
+    if slow == 1: return True #base case where n=1
+
     while slow != fast:
         slow = squared_sum(slow) # move slow one step forward 
         fast = squared_sum(squared_sum(fast)) # move fast two steps forward.
@@ -69,5 +71,9 @@ def HappyNumber(n: int) -> bool:
 '''
 
 
-print(HappyNumber(19))
-print(HappyNumber(2))
+print(HappyNumber(19)) #True
+print(HappyNumber(2)) #False
+print(HappyNumber(1)) #True
+print(HappyNumber(7)) #True
+print(HappyNumber(8)) #False
+print(HappyNumber(2147483646)) #False
