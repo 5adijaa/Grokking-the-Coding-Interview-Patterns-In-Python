@@ -13,12 +13,15 @@ Return true if n is a happy number, and false if not
 Input: n = 19
 Output: True
 Explanation:
-12 + 92 = 82
-82 + 22 = 68
-62 + 82 = 100
-12 + 02 + 02 = 1
+1^2 + 9^2 = 82
+8^2 + 2^2 = 68
+6^2 + 8^2 = 100
+1^2 + 0^2 + 0^2 = 1
 
 Input n = 2
+Explanation: 
+2^2=4 -> 4^2=16 -> 1^2+6^2=37 -> 3^2+0^2=9 -> 9^2=81 -> 8^2+5*2=65 -> 6^2+5^2=61 ->6^2+1= 
+                           ⬆___________________infinite loop___________________________⬆
 Output: False
 '''
 
