@@ -39,11 +39,13 @@ class LinkedList:
             i += 1
         return self
     
-    def printLL(self):
-        curr = self.head
-        while curr:
+    def printLL(self, head, length):
+        curr = head
+        i = 0
+        while curr and i < length:
             print(curr.val, '→ ', end='')
             curr = curr.next
+            i += 1
         print('None')
     
     def detecteCycle(self, head: Optional[Node]) -> Optional[Node]:
@@ -66,37 +68,48 @@ class LinkedList:
             # return slow
             return slow.val
     
-    def getLength(self):
-        curr = self.head
+    def getLength(self, head):
+        curr = head
         length = 0
         while curr:
             length += 1
             curr = curr.next
         return length
     
-    def getNode(self, pos):
+    def getNode(self, head, pos):
         if pos != -1:
             i = 0
-            curr = self.head
+            curr = head
             while i < pos:
                 curr = curr.next
                 i += 1
             return curr
 
 def main():
-    test = [3, 2, 0, -4] #cycle occurs at node: 2
-    pos = 1
-    # pos = -1
-    linked_list = LinkedList()
-    linked_list.createLLFromList(test)
-    length = linked_list.getLength()
-    linked_list.printLL()
-    if pos != -1:
-        last_node = linked_list.getNode(length-1)
-        last_node.next = linked_list.getNode(pos)
-        print('Tail connects to node index:', linked_list.detecteCycle(linked_list.head))
-    else:
-        print('No cycle detected')
+    tests = (
+        [3, 2, 0, -4],
+        [1, 2],
+        [1],
+        [1, 3, 5, 7, 9, 11], 
+        [5, 1, 4, 9, 2, 3]
+    )
+    pos = [1 , 0, -1, -1, 2]
+    
+    for i in range(len(tests)):
+        print('-'*50)
+        linked_list = LinkedList()
+        linked_list.createLLFromList(tests[i])
+        length = linked_list.getLength(linked_list.head)
+        print(f'Test Nº:{i+1} -- LL: ', end ='')
+        linked_list.printLL(linked_list.head, length)
+        print('pos =', pos[i])
+        if pos[i] != -1:
+            last_node = linked_list.getNode(linked_list.head, length-1)
+            last_node.next = linked_list.getNode(linked_list.head, pos[i])
+            print('Tail connects to node index:', linked_list.detecteCycle(linked_list.head))
+        else:
+            print('No cycle detected')
+        print('-'*50)
 
 
 main()
