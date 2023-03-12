@@ -51,17 +51,17 @@ def circularArrayLoop(nums: List[int]) -> bool:
     return False
 
 def get_next(idx, direction, nums):
-        if idx is None or nums[idx] == 0:
-            return None
-        
-        if (nums[idx] > 0) != direction:
-            return None
-        
-        new_idx = (idx + nums[idx]) % len(nums)
-        if new_idx == idx:
-            return None
-        
-        return new_idx
+    if idx is None or nums[idx] == 0:
+        return None
+    
+    if (nums[idx] > 0) != direction:
+        return None
+    
+    new_idx = (idx + nums[idx]) % len(nums)
+    if new_idx == idx:
+        return None
+    
+    return new_idx
 
 print(circularArrayLoop([-2,1,-1,-2,-2]))
 
@@ -87,3 +87,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+TC -> O(n^2): because we iterate over all elements of the array (for loop), and we try to find a cycle for each element (while loop)
+SC -> O(1): no addition space is used
+'''
