@@ -57,23 +57,34 @@ class LinkedList:
 
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         '''
-        ## TC -> O(2n) ~ O(n)
-        ## SC -> O(n) : we used a stack
+        ### Follow up Question: Could you do it in O(n) time and O(1) space? ###
+        ## instead of using a stack => we use slow and fast pointers,
+        ## TC -> O(n)
+        ## SC -> O(1) : no extra space wes needed
         '''
-        left, right = head, head
-        stack = []
-
-        while left:
-            stack.append(left.val)
-            left = left.next
+        slow, fast = head, head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
         
+        right = self.reverseLL(slow) #reverse slow not slow.next 
+        left = head
         while right:
-            if right.val == stack.pop():
+            if left.val == right.val:
+                left = left.next
                 right = right.next
             else:
                 return False
         
         return True
+    
+    def reverseLL(self, head):
+        prev = None
+        curr = head
+        while curr:
+            curr.next, prev, curr = prev, curr, curr.next
+        return prev
+    
 
 def main():
     tests = (
