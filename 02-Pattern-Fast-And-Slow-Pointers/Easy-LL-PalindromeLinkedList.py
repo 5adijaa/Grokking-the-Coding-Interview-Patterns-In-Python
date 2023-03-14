@@ -58,7 +58,7 @@ class LinkedList:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
         '''
         ### Follow up Question: Could you do it in O(n) time and O(1) space? ###
-        ## instead of using a stack => we use slow and fast pointers,
+        ## instead of using a stack => we use slow and fast pointers. when fast reaches the end, slow will be at middle. Then we reverse the 2nd half and compare it with the first half of the linked list
         ## TC -> O(n)
         ## SC -> O(1) : no extra space wes needed
         '''
@@ -111,3 +111,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+TC -> O(n): where where n is the total number of nodes in a linked list
+SC -> O(1): no extra space in memory
+'''
