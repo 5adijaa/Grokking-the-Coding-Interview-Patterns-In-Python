@@ -39,6 +39,7 @@ def minWindow(S: str, T: str):
             start = ps - 1
             end = ps
             pt = len_T - 1
+            ps = start
             while pt >= 0:
                 if S[start] == T[pt]:
                     pt -= 1
@@ -51,14 +52,13 @@ def minWindow(S: str, T: str):
             if end - start < length:
                 length = end - start
                 min_subsequence = S[start+1:end]
-        
-        ps += 1
-    
+            
     return min_subsequence
 
 
 print(minWindow("abcdebdde" , "bde")) #expected: 'bcde'
 print(minWindow('azjskfztf', 'sz')) #expected: 'skfz'
 print(minWindow('abababa', 'ba')) #expected: 'ba'
+print(minWindow('abaebbaba', 'bab')) #expected: 'bab' but got baeb! => add line 42
 print(minWindow("fgrqsqsnodwmxzkzxwqegkndaa" , "kzed")) #expected: 'kzxwqegknd'
 print(minWindow("michmznaitnjdnjkdsnmichmznait" , "michmznait")) #'michmznait'
