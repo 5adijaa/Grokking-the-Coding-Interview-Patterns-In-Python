@@ -17,8 +17,8 @@ from typing import List
 
 
 def minSubArrayLen(target: int, nums: List[int]) -> int:
-    window_size = float('inf') #Initializing window_size to a max number
-    start = 0 #Initialize start pointer to 0 and sum to 0
+    window_size = float('inf')
+    start = 0
     total_sum = 0
     
     for end in range(len(nums)):
@@ -27,7 +27,7 @@ def minSubArrayLen(target: int, nums: List[int]) -> int:
         # check if we can remove elements from the start of the subarray
         # while still satisfying the target condition
         while total_sum >= target:
-            curr_subarray_size = end - start + 1 #Get size of current subarray
+            curr_subarray_size = end - start + 1
             window_size = min(window_size, curr_subarray_size)
             total_sum -= nums[start]
             start += 1
