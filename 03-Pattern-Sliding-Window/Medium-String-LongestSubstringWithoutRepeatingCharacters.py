@@ -31,7 +31,6 @@ def lengthOfLongestSubstring(s: str) -> int:
         
         return max_length
 
-print(lengthOfLongestSubstring('function'))
 
 def main():
     strings = [ 'abcabcbb', 'pwwkew', 'bbbbb', 'ababababa', '', 'ABCDEFGHI', 'ABCDEDCBA',
