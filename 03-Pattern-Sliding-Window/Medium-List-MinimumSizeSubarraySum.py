@@ -51,3 +51,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+TC -> O(n): As we use a fixed size array and slide a specific size of the window over the whole array, the time complexity of this solution is O(n)
+SC -> O(1): because we used a fixed amount of extra space in memory
+'''
