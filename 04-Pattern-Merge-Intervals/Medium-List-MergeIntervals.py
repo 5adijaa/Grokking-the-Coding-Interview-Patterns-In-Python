@@ -11,19 +11,6 @@ Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
 Input: intervals = [[1,4], [4,5]]
 Output: [[1,5]]
 Explanation: Intervals [1,4] and [4,5] are considered overlapping.
-
-
-Road to the answer :
-1 2 3 4 5 6 7 8   10   15   18
-[---]
-  [-------]
-              [----] 
-                       [------]
-- should I consider the list as it is sorted or I have to sort it first?
-- does the 2nd interval overlap with the previous one?
-- if yes: we merge them
-    * [1,3] and [2, 6] overlap .. 1<2 => take first val 1 .. 3<6 => take second val 6
-- if no: we do nothing, we just add the interval into output list
 '''
 
 class Interval:
@@ -83,20 +70,7 @@ def main():
 if __name__ == '__main__':
     main()
 
-# from typing import List
-
-
-# def merge(intervals: List[List[int]]) -> List[List[int]]:
-#     output = []
-#     first = intervals[0]
-#     for i in range(1, len(intervals)):
-#         if first[0] < intervals[i][0] :
-#             first[0] = first[0]
-#         if first[1] < intervals[i][1]:
-#             first[1] = intervals[i][1]
-#         else:
-#             output.append(intervals[i])
-#             first = intervals[i]
-    
-#     return output
-            
+'''
+TC -> O(n) where n is the total number of all intervals in the input list
+SC -> O(n) because we need to return an output list of all the merged intervals 
+'''
