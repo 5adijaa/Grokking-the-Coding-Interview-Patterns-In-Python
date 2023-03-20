@@ -72,6 +72,6 @@ if __name__ == '__main__':
 
 
 '''
-TC -> O(n)
+TC -> O(nlog) because we do sort befor looping through the list
 SC -> O(n)
 '''
