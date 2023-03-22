@@ -55,9 +55,12 @@ def employeesFreeTime(schedule: '[[Interval]]') -> '[Interval]':
     
     intervals.sort(key=lambda x: x.start)
 
+    prev_end = intervals[0].end
     for i in range(1, len(intervals)):
-       if intervals[i-1].end < intervals[i].start:
-           res.append(Interval(intervals[i-1].end, intervals[i].start))
+        if prev_end < intervals[i].start:
+           res.append(Interval(prev_end, intervals[i].start))
+        
+        prev_end = max(prev_end, intervals[i].end) #To pass first test in driver code
     
     return res
 
@@ -97,3 +100,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+'''
+TC -> Since we're sorting the list of intervals of k employees, and we loop through n intervals, the time complixity will be: O(n.log(k)).
+SC -> We create a new list that combines all the schedules of employees, and then sorts it. Therfore, The space complexity is O(k).
+'''
