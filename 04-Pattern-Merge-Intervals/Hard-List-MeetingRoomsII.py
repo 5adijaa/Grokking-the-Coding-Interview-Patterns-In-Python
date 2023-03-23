@@ -50,3 +50,7 @@ print(minMeetingRooms([[1, 2], [4, 6], [3, 4], [7, 8]])) #1
 print(minMeetingRooms([[2, 8], [3, 4], [3, 9], [5, 11], [8, 20], [11, 15]])) #3
 print(minMeetingRooms([[1, 7], [2, 6], [3, 7], [4, 8], [5, 8]])) #5
 
+'''
+TC -> first we did sort: it takes O(nlogn), then we iterate over all the intervals, and every time we might need to push or pop to heap, so it takes O(nlogn) where n is the worst case where all n intervals overlap. So the total time complexity is O(nlogn)
+SC -> O(n) we needed a list to store the number of rooms.
+'''
