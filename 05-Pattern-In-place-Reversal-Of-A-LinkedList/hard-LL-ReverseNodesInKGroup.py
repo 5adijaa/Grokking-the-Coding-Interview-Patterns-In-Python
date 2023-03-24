@@ -37,8 +37,16 @@ class ListNode:
         print('Null')
 
 
+def reverseLinkedList(start, stop):
+    prev = None
+    curr = start
+    while curr != stop:
+        curr.next, prev, curr = prev, curr, curr.next
+    return prev, start
+
 def reverseKGroup(head: Optional[ListNode], k: int) -> Optional[ListNode]:
     #using a stack TC-> O(n) and SC-> O(n)
+    '''
     reverse_head = ListNode()
     tmp = reverse_head
     stack = []
@@ -55,6 +63,43 @@ def reverseKGroup(head: Optional[ListNode], k: int) -> Optional[ListNode]:
         else:
             curr = curr.next
     return reverse_head.next
+    '''
+
+    # Follow-up: Can you solve the problem in O(1) extra memory space?
+    # Using In-place Reversal Of A Linked List Pattern
+    '''
+    1->2->3->4->5->6->7, k=3
+    # 1. reverse the sub-LL of k-nodes by using 2 pointers to keep track of its start and end
+    # 2. connect the reversed set of k nodes to the rest of the LL
+    # 3. repeat the process till k or no nodes are left in the LL
+    '''
+
+    prev = None
+    start = end = head
+    while end:
+        j = k-1
+        while j:
+            end = end.next
+            j -= 1
+            if not end: 
+                return head
+        
+        nxt = end.next #nxt points at start of next k sub-LL
+        
+        start, end = reverseLinkedList(start, nxt) #reverse the sub-LL
+
+        if prev: #prev keep track of the curr start and head of the reversed LL
+            prev.next = start
+        else:
+            head = start
+
+        end.next = nxt #connect the previous reversed subLL with the rest of my LL
+
+        prev = end #A backup pointer To keep track of the head 
+        start = end = nxt #they will point to next portion of next sub-LL
+    
+    return head
+
 
 
 def main():
