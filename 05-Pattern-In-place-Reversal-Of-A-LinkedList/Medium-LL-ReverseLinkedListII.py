@@ -92,3 +92,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+'''
+TC -> Each node will be processed at most one time. Hence, the time complexity will be O(n), where n is the number of nodes in the linked list
+SC -> The space complexity will be O(1) because we didn't use any extra space, we used a constant number of additional variables to maintain the proper connections between the nodes during reversal
+'''
