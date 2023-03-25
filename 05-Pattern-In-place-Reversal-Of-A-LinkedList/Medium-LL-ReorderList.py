@@ -89,3 +89,8 @@ def main():
         print('-'*75)
 
 main()
+
+'''
+TC -> O(n) The time complexity of this solution is linear, where n is the number of nodes in the linked list. 
+SC -> O(1) we didn't use any extra memory.
+'''
