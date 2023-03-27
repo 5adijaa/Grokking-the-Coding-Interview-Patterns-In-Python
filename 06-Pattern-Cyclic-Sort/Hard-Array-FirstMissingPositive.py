@@ -59,3 +59,8 @@ def main():
 
 if __name__ == '__main__':
   main()
+
+'''
+TC -> The cyclic sort has a time complexity of O(n). In the worst-case scenario, it will run for 2n-1 times in cyclic sort, where n is the number of elements present in the array.
+SC -> O(1): no extra space needed 
+'''
