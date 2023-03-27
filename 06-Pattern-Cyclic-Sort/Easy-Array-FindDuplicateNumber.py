@@ -20,18 +20,21 @@ def findDuplicate(nums: List[int]) -> int:
     n = len(nums)
 
     i=0
-    while i < n: #Cyclic Sort:
-        c = nums[i]-1 #correct index to swap val to
-        if nums[i] != nums[c]:
-            nums[i], nums[c] = nums[c], nums[i] #swap
+    while i < n: #Cyclic Sort + Find duplicate in one loop => less memory
+        if nums[i] != i+1:
+            c = nums[i]-1 #correct index
+            if nums[i] != nums[c]:
+                nums[i], nums[c] = nums[c], nums[i] #swap
+            else:
+                return nums[i]
         else:
             i+=1
     
     print('\tSorted nums = ', nums)
     
-    for i in range(n): #Find the duplicate val
-        if nums[i] != i+1: 
-            return nums[i]
+    # for i in range(n): #Find the duplicate val
+    #     if nums[i] != i+1: 
+    #         return nums[i]
 
 
 def main():
