@@ -55,3 +55,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+TC -> O(n)
+SC -> O(1)
+'''
