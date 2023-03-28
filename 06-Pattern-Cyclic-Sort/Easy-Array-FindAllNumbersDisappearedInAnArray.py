@@ -49,3 +49,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+TC -> O(n)
+SC -> O(1) we may assume the returned list does not count as extra space.
+'''
