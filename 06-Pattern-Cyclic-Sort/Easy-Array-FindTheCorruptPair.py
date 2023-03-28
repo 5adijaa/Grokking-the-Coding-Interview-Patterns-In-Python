@@ -1,13 +1,7 @@
 '''
 Educative: https://www.educative.io/courses/grokking-coding-interview-patterns-python/m2YP8PvNYY9
 
-Given a non-empty unsorted en from a range of 
-1
-1
- to 
-�
-n
-. Due to some data error, one of the numbers is duplicated, which results in another number missing. Create a function that returns the corrupt pair (missing, duplicated).
+Given a non-empty unsorted en from a range of 1 to n. Due to some data error, one of the numbers is duplicated, which results in another number missing. Create a function that returns the corrupt pair (missing, duplicated).
 
 Constraints: 1≤ n ≤10^3 and 0 ≤ nums[i] ≤n, where nums is the input put: [4, 1, 2, 1, 6, 3]
 Output: (5,1)
@@ -28,11 +22,14 @@ def findCorruptPair(nums):
         else:
             i += 1
     
+    missing = None
+    duplicated = None
     for i in range(len(nums)): #Finding the corrupt pair(missing, duplicated)
         if nums[i] != i+1:
-            return i+1, nums[i]
+            missing = i + 1
+            duplicated = nums[i]
+    return missing, duplicated
 
-print(findCorruptPair([1, 2, 3, 4, 5]))
 
 def main():
     arrays = [
@@ -41,14 +38,14 @@ def main():
         [4, 1, 2, 1, 6, 3],
         [4, 3, 4, 5, 1],
         [5, 3, 5, 6, 2, 1],
-        [5, 4, 3, 2, 1]
+        [5, 4, 3, 2, 1],
+        [1, 2, 3, 4]
     ]
     for i in range(len(arrays)):
         print(i + 1,  '.\tGiven array: ', arrays[i], sep='')
         result = findCorruptPair(arrays[i])
-        print(result[0])
 
-        if result[0] is not None:
+        if result[0]:
             print('\n\tCorrupt pair: (', result[0], ', ', result[1], ')', sep='')
         else:
             print('\n\tNo corrupt pair found.')
