@@ -1,11 +1,17 @@
 '''
-Educative: https://www.educative.io/courses/grokking-coding-interview-patterns-python/m2YP8PvNYY9
+Leetcode: 645. Set Mismatch
+Educative: Find the Corrupt Pair: https://www.educative.io/courses/grokking-coding-interview-patterns-python/m2YP8PvNYY9
 
 Given a non-empty unsorted en from a range of 1 to n. Due to some data error, one of the numbers is duplicated, which results in another number missing. Create a function that returns the corrupt pair (missing, duplicated).
 
-Constraints: 1≤ n ≤10^3 and 0 ≤ nums[i] ≤n, where nums is the input put: [4, 1, 2, 1, 6, 3]
+Constraints: 1≤ n ≤10^3 and 0 ≤ nums[i] ≤n, where nums is the input 
+
+input: [4, 1, 2, 1, 6, 3]
 Output: (5,1)
 Explanation: The missing number is 5 and the duplicate number is 1
+
+Input: nums = [1,2,2,4]
+Output: [2,3]
 
 Input: [3, 1, 2, 5, 2]
 Output: (4,2)
@@ -33,6 +39,7 @@ def findCorruptPair(nums):
 
 def main():
     arrays = [
+        [1,2,2,4],
         [3, 1, 2, 5, 2],
         [3, 1, 2, 3, 6, 4],
         [4, 1, 2, 1, 6, 3],
