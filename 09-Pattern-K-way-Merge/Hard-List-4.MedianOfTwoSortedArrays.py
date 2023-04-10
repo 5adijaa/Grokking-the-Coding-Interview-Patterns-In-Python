@@ -1,5 +1,5 @@
 '''
-Leetcode: 4. Median of Two Sorted Arrays
+Leetcode: 4. Median of Two Sorted Arrays.
 Educative: https://www.educative.io/courses/grokking-coding-interview-patterns-python/m7Z33JoE51E
 
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
