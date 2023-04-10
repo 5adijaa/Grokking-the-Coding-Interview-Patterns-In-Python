@@ -123,3 +123,8 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+'''
+TC -> O(NlogK), with K linked lists, and N is total nodes in all linked lists input: we utilized divide-and-conquer algorithm: The algorithm performs K iterations, and in each iteration, it merges 2 ll of size N/K on average. The merge operation takes O(N/K) time, and since the algorithm performs K iterations, the total time complexity is O(NlogK)
+SC -> O(1), since constant space was utilized.
+'''
