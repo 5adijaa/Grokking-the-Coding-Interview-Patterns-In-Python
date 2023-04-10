@@ -4,7 +4,7 @@ Educative: https://www.educative.io/courses/grokking-coding-interview-patterns-p
 
 Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
 
-The overall run time complexity should be O(log (m+n)). !!!! Constriant !!!!
+The overall run time complexity should be O(log (m+n)). !!!! Constraint !!!!
 
 Input: nums1 = [1,3], nums2 = [2]
 Output: 2.00000
@@ -18,30 +18,36 @@ Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5
 from typing import List
 
 def findMedianSortedArrays(nums1: List[int], nums2: List[int]) -> float:
+    if len(nums1) > len(nums2): #We want nums1 to be the shorter list
+        nums1, nums2 = nums2, nums1
+        
     m, n = len(nums1), len(nums2)
-
-    i = m - 1
-    j = n - 1
-    k = m + n - 1
+    left, right, half_len = 0, m, (m + n + 1) // 2
     
-    nums1 += [0]*n # Extend nums1 with n zeros elements
-
-    while j >= 0:
-        if i >= 0 and nums1[i] > nums2[j]:
-            nums1[k] = nums1[i]
-            i -= 1
+    while left <= right:
+        partition1 = (left + right) // 2
+        partition2 = half_len - partition1
+        
+        max_left1 = float('-inf') if partition1 == 0 else nums1[partition1 - 1]
+        min_right1 = float('inf') if partition1 == m else nums1[partition1]
+        
+        max_left2 = float('-inf') if partition2 == 0 else nums2[partition2 - 1]
+        min_right2 = float('inf') if partition2 == n else nums2[partition2]
+        
+        if max_left1 <= min_right2 and max_left2 <= min_right1:
+            if (m + n) % 2 == 0:
+                return (max(max_left1, max_left2) + min(min_right1, min_right2)) / 2.0
+            else:
+                return max(max_left1, max_left2)
+        
+        elif max_left1 > min_right2:
+            right = partition1 - 1
+        
         else:
-            nums1[k] = nums2[j]
-            j -= 1
-        k -= 1
+            left = partition1 + 1
     
-    print('\tMerged Array :', nums1)
+    return -1.0 #Should never reach here
 
-    length = n+m
-    if length % 2 != 0:
-        return nums1[length//2]
-    else:
-        return (nums1[length//2 - 1] + nums1[length//2]) / 2.0
 
 def main():
     m = [3, 1, 0, 9, 2, 3, 1, 8]
@@ -79,6 +85,6 @@ if __name__ == '__main__':
     main()
 
 '''
-TC -> O(m+n) because we're comparing all the elements in both arrays
+TC -> O(log(m+n)) because we are effectively cutting the problem size in half at each iteration of the binary search.
 SC -> O(1) becaue we're merging the arrays in-place, without using extra space
 '''
