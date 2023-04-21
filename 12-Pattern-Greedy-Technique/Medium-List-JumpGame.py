@@ -25,6 +25,24 @@ from typing import List
 
 
 def canJump(nums: List[int]) -> bool:
+    # For loop from forwards
+    max_reach = 0 #keep track of the farthest index we can reach from the curr position
+    n = len(nums)
+
+    for i in range(n):
+        if i > max_reach: #It means we cannot reach the current position
+            return False
+        
+        max_reach = max(max_reach, i+nums[i]) #i+nums[i]: furthest point that we can reach
+       
+        if max_reach >= n: #If we can reach the last index, return True
+            return True
+    
+    return True
+
+
+    # For loop from Backwards
+    '''
     # 1. Set the last element in the array as your initial target.
     target = len(nums) - 1
     
@@ -42,9 +60,11 @@ def canJump(nums: List[int]) -> bool:
     
     # 5. We reach the first index without finding any index from which the current target is reachable
     return False
+    '''
 
 def main():
     nums = [
+        [2, 0, 0],
         [2, 3, 1, 1, 4],
         [3, 2, 1, 0, 4],
         [3, 2, 2, 0, 1, 4],
