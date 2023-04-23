@@ -24,6 +24,10 @@ def solveNQueens(n: int) -> List[List[str]]:
     board = [['.' for _ in range(n)] for _ in range(n)]
     result = []
 
+    cols = set() #make sure that no queen has been set at same column
+    diagonals = set() #make sure, there is no queen at same positive diagonal (row+col)
+    anti_diagonals = set() ##make sure, there is no queen at same anti diagonal (row-col)
+
     def backtrack(row): #DFS
         if row == n:
             copy = [''.join(row) for row in board] #make a copy b/c we're still using the board in next calls
@@ -31,33 +35,21 @@ def solveNQueens(n: int) -> List[List[str]]:
             return
         
         for col in range(n):
-            if is_safe(n, row, col):
-                board[row][col] = 'Q' #Place a queen in the curr cell
-                backtrack(row+1) #Move to the next row and try to place a queen
-                board[row][col] = '.' #Backtrack by removing the queen from curr cell
-        
-    
-    def is_safe(n, row, col):
-        # Check if no queen is placed at the same column
-        for i in range(n):
-            if board[i][col] == 'Q': return False
+            if col in cols or row + col in diagonals or row - col in anti_diagonals:
+                continue
 
-        # Check if no queen is placed at the same diagonal
-        i, j = row-1, col-1 #NorthWestern direction
-        while i >= 0 and j >= 0:
-            if board[i][j] == 'Q': return False
-            i -= 1
-            j -= 1
-        
-        i, j = row-1, col+1 #NorthEastern direction
-        while i >= 0 and j < n:
-            if board[i][j] == 'Q': return False
-            i -= 1
-            j += 1
-        
-        return True
+            cols.add(col)
+            diagonals.add(row + col)
+            anti_diagonals.add(row - col)
+            board[row][col] = 'Q' #Place a queen in the curr cell
 
+            backtrack(row+1) #Move to the next row and try to place a queen
 
+            cols.remove(col)
+            diagonals.remove(row + col)
+            anti_diagonals.remove(row - col)
+            board[row][col] = '.' #Backtrack by removing the queen from curr cell
+        
     backtrack(0)
 
     return result
